@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react';
 import LoadingCompoenent from '../../../app/layout/LoadingComponent';
-import { Activity } from '../../../app/models/activity';
+//import { Activity } from '../../../app/models/activity';
 import { useStore } from '../../../app/stores/store';
 import {v4 as uuid} from 'uuid';
 
@@ -14,7 +14,7 @@ export default observer(function ActivityForm() {
 
     const history = useHistory();
     const {activityStore} = useStore();
-    const {selectedActivity,  createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+    const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
     const {id} = useParams<{id: string}>();
 
     const [activity, setActivity] = useState({
