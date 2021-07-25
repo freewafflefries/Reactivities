@@ -1,4 +1,4 @@
-import { StringDecoder } from "string_decoder";
+
 import { Profile } from "./profile";
 
 export interface Activity {

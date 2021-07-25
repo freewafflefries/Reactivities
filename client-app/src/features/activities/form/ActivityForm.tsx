@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button,   Header,   Segment } from 'semantic-ui-react';
 import LoadingCompoenent from '../../../app/layout/LoadingComponent';
-//import { Activity } from '../../../app/models/activity';
+
 import { useStore } from '../../../app/stores/store';
 import {v4 as uuid} from 'uuid';
 import { Formik, Form } from 'formik';
@@ -14,7 +14,7 @@ import MyTextArea from '../../../app/common/form/MyTextArea';
 import MySelectInput from '../../../app/common/form/MySelectInput';
 import { categoryOptions } from '../../../app/common/options/categoryOptions';
 import MyDateInput from '../../../app/common/form/MyDateInput';
-import { Activity, ActivityFormValues } from '../../../app/models/activity';
+import { ActivityFormValues } from '../../../app/models/activity';
 
 
 
@@ -22,10 +22,10 @@ export default observer(function ActivityForm() {
 
     const history = useHistory();
     const {activityStore} = useStore();
-    const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+    const {createActivity, updateActivity, loadActivity, loadingInitial} = activityStore;
     const {id} = useParams<{id: string}>();
 
-    const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues);
+    const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues());
 
     const validationSchema = Yup.object({
         title: Yup.string().required('The activity title is required.'),
