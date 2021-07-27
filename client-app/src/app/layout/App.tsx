@@ -18,6 +18,8 @@ import {useStore} from '../stores/store';
 import { useEffect } from 'react';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
+import TestErrors from '../../features/errors/TestError';
+import ProfilePage from '../../features/profiles/ProfilePage';
 
 
 function App() {
@@ -51,8 +53,9 @@ function App() {
             <Route path='/activities/:id' component={ActivityDetails} />
             <Route key={location.key} path={['/createActivity', '/manage/:id']} component={ActivityForm} />
             <Route path='/login' component={LoginForm} />
+            <Route path='/profiles/:username'component={ProfilePage}/>
+            <Route path='/errors' component={TestErrors}/>
             <Route path='/server-error' component={ServerError} />
-
             <Route component={NotFound} />
           </Switch>
         </Container>
