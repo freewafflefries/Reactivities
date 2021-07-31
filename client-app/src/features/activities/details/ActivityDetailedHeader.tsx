@@ -75,9 +75,9 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                     </>
                     
                 ) : activity.isGoing ? (
-                    <Button loadng={loading} onClick={updateAttendance}>Cancel attendance</Button>
+                    <Button loading={loading} onClick={updateAttendance}>Cancel attendance</Button>
                 ) : (
-                    <Button loadng={loading} disabled={activity.isCancelled}  onClick={updateAttendance} color='teal'>Join Activity</Button>
+                    <Button loading={loading} disabled={activity.isCancelled}  onClick={updateAttendance} color='teal'>Join Activity</Button>
                 )}
                
             </Segment>
