@@ -10,6 +10,7 @@ interface Props {
 
 export default observer(function ActivityDetailedSidebar ({activity: {attendees, host}}: Props) {
     if (!attendees) return null;
+
     
     return (
         <>
@@ -21,7 +22,7 @@ export default observer(function ActivityDetailedSidebar ({activity: {attendees,
                 inverted
                 color='teal'
             >
-                {attendees.length}{attendees.length === 1 ? 'Person is ' : 'People are '} going
+                {attendees.length}{attendees.length === 1 ? ' Person is ' : ' People are '} going
             </Segment>
             <Segment attached>
                 <List relaxed divided>
@@ -40,7 +41,9 @@ export default observer(function ActivityDetailedSidebar ({activity: {attendees,
                             <Item.Header as='h3'>
                                 <Link to={`/profiles/${attendee.username}`}>{attendee.displayName}</Link>
                             </Item.Header>
+                            {attendee.following &&
                             <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>
+                            }
                         </Item.Content>
                     </Item>
                     ))}
