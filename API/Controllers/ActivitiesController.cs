@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Domain;
 using System;
-
+using Application.Core;
 using Application.Activities;
 using System.Threading;
 using Microsoft.AspNetCore.Authorization;
+
+using Applicaiton.Activities;
 
 namespace API.Controllers
 {
@@ -15,9 +17,9 @@ namespace API.Controllers
     {
 
         [HttpGet]
-        public async Task<IActionResult> GetActivities(CancellationToken ct)
+        public async Task<IActionResult> GetActivities([FromQuery] ActivityParams pagingParams)
         {
-            return HandleResult(await Mediator.Send(new List.Query(), ct));
+            return HandlePagedResult(await Mediator.Send(new List.Query{Params = pagingParams}));
         }
 
         
