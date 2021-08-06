@@ -49,7 +49,7 @@ export default observer( function ProfileActivities(){
                         {userActivities.map((activity: UserActivity) => (
                             <Card
                                 as={Link}
-                                to={`activities/${activity.id}`}
+                                to={`/activities/${activity.id}`}
                                 key={activity.id}
                             >
                                     <Image 
