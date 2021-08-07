@@ -38,6 +38,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "rm -r ../API/wwwroot",
     "build": "react-scripts build",
     "postbuild": "mv build ../API/wwwroot",
     "test": "react-scripts test",
