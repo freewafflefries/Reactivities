@@ -26,10 +26,7 @@ import React, {useState} from 'react';
                  <>
                  <Grid.Column width='16'>
                     {editMode ? <ProfileEditForm setEditMode={setEditMode} /> 
-                        : <span>{profile?.bio}</span>}
-                 </Grid.Column>
-                 <Grid.Column>
-                     FUCK FUCK FUCK
+                        : <span style={{whiteSpace: 'pre-wrap'}}>{profile?.bio}</span>}
                  </Grid.Column>
                  </>
              </Grid>
