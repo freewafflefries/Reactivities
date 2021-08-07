@@ -69,4 +69,10 @@ export default class UserStore {
             this.user.displayName = newDisplayName
         }
     }
+
+    setBio = (newBio: string) => {
+        if (this.user) {
+            this.user.bio = newBio;
+        }
+    }
 }

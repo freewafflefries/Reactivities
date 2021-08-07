@@ -119,12 +119,14 @@ export default class ProfileStore {
         try {
             agent.Profiles.updateProfile(profile)
             runInAction(() => {
-                if(profile.displayName && profile.displayName !== store.userStore.user?.displayName) {
-                    store.userStore.setDisplayName(profile.displayName)
-
-                    this.profile = {...this.profile, ...profile as Profile}
-                    this.loading = false
+                if(profile.bio && profile.bio !== store.userStore.user?.bio) {
+                    store.userStore.setBio(profile.bio)
                 }
+                if(profile.displayName && profile.displayName !== store.userStore.user?.displayName) {
+                    store.userStore.setDisplayName(profile.displayName)   
+                }
+                this.profile = {...this.profile, ...profile as Profile}
+                    this.loading = false
             })
 
         } catch(error) {
