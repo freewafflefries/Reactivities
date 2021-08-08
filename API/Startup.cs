@@ -41,6 +41,13 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt => 
+            {
+                opt.AddPolicy(name: "AllowSpecificOrigins", builder => {
+                    builder.WithOrigins("https://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
             services.AddControllers(opt => 
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -52,6 +59,7 @@ namespace API
             });
             services.AddApplicationServices(_config);
             services.AddIdentityServices(_config);
+            
             
         }
 
@@ -96,7 +104,8 @@ namespace API
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseCors("CorsPolicy");
+            app.UseCors("AllowSpecificOrigins");
+            
 
             app.UseAuthentication();
 
